@@ -6,10 +6,16 @@ function App() {
 
   const accountIdentify = ()=> {
   window.hyperengage(
-    'account', 
-    { account_id: '122345', 
+    'identify_account', 
+    { account_id: '2f550d76ffca3777e7a8351d12de20', 
     traits: {
-    name: 'Hyperengage',
+    name: 'Intercom',
+    mrr: 3500,
+    plan_name: 'premium',
+    company_size: "1-10", 
+    support_level:"SLA",
+    website:"https://www.intercom.com",
+    created_at:"2023-04-19T22:43:27+0000"
   }
 });
 };
@@ -17,11 +23,12 @@ function App() {
 
 const userIdentify = ()=> {
 window.hyperengage(
-  'user', {
-    user_id: '1001',
+  'identify_user', {
+    user_id: '2f550d76ffca3777e7a8351d12de23',
     traits: {
-      name: "Ramos",
-      email: "ramos+123@rocketmail.io"
+      name: "Peter S",
+      email: "peter@intercom.com",
+      job_role: "CEO"
     }
 });
 };
@@ -36,7 +43,7 @@ window.hyperengage(
         <button type='button' onClick={accountIdentify}>Identify Account</button>
       <button type='button' onClick={userIdentify}>Identify User</button>
       <button type='button' onClick={() => {
-        window.hyperengage('track','test_button_click',{properties: {app: "Test-1"}})
+        window.hyperengage('track','created_new_view',{properties: {view_relation: "Accounts"}})
       }}>Track Event</button>
       <button type='button' onClick={() => {
         window.hyperengage('reset');
